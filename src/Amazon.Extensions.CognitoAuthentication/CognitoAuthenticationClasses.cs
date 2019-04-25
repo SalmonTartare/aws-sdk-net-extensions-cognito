@@ -79,6 +79,11 @@ namespace Amazon.Extensions.CognitoAuthentication
         /// The password for the corresponding CognitoUser.
         /// </summary>
         public string Password { get; set; }
+        
+        /// <summary>
+        /// The client metadata for the current authentication flow.
+        /// </summary>
+        public IDictionary<string, string> ClientMetadata { get; set; }
     }
 
     /// <summary>
