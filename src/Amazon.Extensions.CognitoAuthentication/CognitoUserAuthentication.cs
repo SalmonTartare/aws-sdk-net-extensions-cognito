@@ -43,6 +43,7 @@ namespace Amazon.Extensions.CognitoAuthentication
 
             Tuple<BigInteger, BigInteger> tupleAa = AuthenticationHelper.CreateAaTuple();
             InitiateAuthRequest initiateRequest = CreateSrpAuthRequest(tupleAa);
+            initiateRequest.ClientMetadata = new Dictionary<string, string>(srpRequest.ClientMetadata);
 
             InitiateAuthResponse initiateResponse = await Provider.InitiateAuthAsync(initiateRequest).ConfigureAwait(false);
             UpdateUsernameAndSecretHash(initiateResponse.ChallengeParameters);
